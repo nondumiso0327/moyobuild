@@ -1,3 +1,7 @@
+        .fa-envelope:before { content: "✉"; }
+        .fa-phone:before { content: "📞"; } 
+
+
 :root {
             --primary: #0A2463;
             --secondary: #FF6B35;
@@ -467,6 +471,23 @@
             margin-right: 15px;
             color: var(--primary);
             font-size: 1.2rem;
+            min-width: 50px;}
+            .fas, .fab {
+            font-family: "Font Awesome 6 Free", "Font Awesome Local", sans-serif;
+            font-weight: 900;
+            display: inline-block;
+            font-style: normal;
+            font-variant: normal;
+            text-rendering: auto;
+            line-height: 1;
+        }
+        
+        .fab {
+            font-family: "Font Awesome 6 Brands", "Font Awesome Local", sans-serif;
+        }
+        .contact-item p {
+            color: var(--gray);
+            font-size: 1rem;
         }
         
         .contact-form input,
