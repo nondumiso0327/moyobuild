@@ -138,14 +138,38 @@
                 currentSlide = (currentSlide + 1) % testimonialSlides.length;
                 showSlide(currentSlide);
             }, 5000);
-            
-            // Form submission
-            const quoteForm = document.getElementById('quoteForm');
-            quoteForm.addEventListener('submit', (e) => {
-                e.preventDefault();
-                alert('Thank you for your request! We will contact you within 24 hours.');
-                quoteForm.reset();
-            });
+           const quoteForm = document.getElementById('quoteForm');
+quoteForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    
+    // Create FormData object
+    const formData = new FormData(quoteForm);
+    
+    // Add the form-name field (required by Netlify)
+    formData.append('form-name', 'quoteForm');
+    
+    try {
+        // Submit to Netlify
+        await fetch('/', {
+            method: 'POST',
+            body: formData,
+            headers: {
+                'Accept': 'application/json'
+            }
+        });
+        
+        // Show success message
+        alert('Thank you for your request! We will contact you within 24 hours.');
+        quoteForm.reset();
+        
+        // Optional: Redirect to thank you page
+        // window.location.href = '/thank-you.html';
+        
+    } catch (error) {
+        alert('There was an error submitting your form. Please try again.');
+        console.error('Form submission error:', error);
+    }
+});
             
             // Smooth scrolling for anchor links
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
