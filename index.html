@@ -221,7 +221,8 @@
                     </div>
                 </div>
                 <div class="contact-form">
-                   <form id="quoteForm" name="quoteForm" netlify netlify-honeypot="bot-field">
+                <form id="quoteForm" name="quoteForm" method="POST" netlify data-netlify="true">
+                <input type="hidden" name="form-name" value="quoteForm">
        <!-- Add a honeypot field for spam protection -->
        <p class="hidden">
         <label>Don't fill this out if you're human: <input name="bot-field"></label>
